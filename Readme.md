@@ -38,4 +38,3 @@ This project is a simple To-Do application built with Django. It includes user r
 5. **PATCH /api/todos/<id>/update/** - Partial Update a To-Do
 6. **GET /api/todos/status/<status>/** - Filter To-Do Based on Status
 
-
