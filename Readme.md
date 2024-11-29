@@ -23,14 +23,14 @@ This project is a simple To-Do application built with Django. It includes user r
 
 ## API Endpoints
 - Authentication Endpoints
-1. **POST /users/register/** - User Registration
-2. **POST /users/login/** - User Login
-3. **POST /auth/refresh/** - Refresh Access Token
+1. **POST /api/auth/register/** - User Registration
+2. **POST /api/auth/login/** - User Login
+3. **POST /api/auth/refresh/** - Refresh Access Token
 - To-Do Endpoints
-1. **GET /users/todos/** - List To-Dos
-2. **POST /users/todos/create/** - Create a To-Do
-3. **PUT /users/todos/<id>/update/** - Update a To-Do
-4. **DELETE /users/todos/<id>/delete/** - Delete a To-Do
+1. **POST /api/todos/craete/** - Create a To-Do
+2. **GET /api/todos/read/** -  List all To-Do
+3. **PUT /api/todos/<id>/update/** - Update a To-Do
+4. **DELETE /api/todos/<id>/delete/** - Delete a To-Do
 
 
 
