@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterView, LoginView, CreateTodoView, ListTodoView, UpdateTodoView, DeleteTodoView
+from .views import RegisterView, LoginView, CreateTodoView, ListTodoView, UpdateTodoView, DeleteTodoView, FilterTodoByStatusView
 
 from rest_framework_simplejwt.views import TokenRefreshView
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('todos/read/', ListTodoView.as_view(), name='list_todos'),
     path('todos/<int:pk>/update/', UpdateTodoView.as_view(), name='update_todo'),
     path('todos/<int:pk>/delete/', DeleteTodoView.as_view(), name='delete_todo'),
+    path('todos/status/<str:status>/', FilterTodoByStatusView.as_view(), name='filter_todos_by_status'),
 ]

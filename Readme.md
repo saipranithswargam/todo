@@ -9,7 +9,7 @@ This project is a simple To-Do application built with Django. It includes user r
 - CRUD operations for To-Do items
 - Asynchronous email notifications using Celery and Redis
 - Dockerized Redis setup for message brokering
-
+- Periodic remainders notifications to email with Celery-beat
 ---
 
 ## Setup
@@ -31,6 +31,7 @@ This project is a simple To-Do application built with Django. It includes user r
 2. **GET /api/todos/read/** -  List all To-Do
 3. **PUT /api/todos/<id>/update/** - Update a To-Do
 4. **DELETE /api/todos/<id>/delete/** - Delete a To-Do
-
+5. **PATCH /api/todos/<id>/update/** - Partial Update a To-Do
+6. **GET /api/todos/status/<status>/** - Filter To-Do Based on Status
 
 

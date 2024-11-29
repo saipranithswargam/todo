@@ -76,6 +76,13 @@ class UpdateTodoView(RetrieveUpdateAPIView):
             raise PermissionDenied("You do not have permission to edit this To-Do.")
         return todo
 
+    def patch(self, request, *args, **kwargs):
+        partial = True  
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class DeleteTodoView(DestroyAPIView):
     queryset = Todo.objects.all()
@@ -91,5 +98,15 @@ class DeleteTodoView(DestroyAPIView):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response({"message": "Todo deleted successfully"}, status=status.HTTP_200_OK)
+
+
+class FilterTodoByStatusView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request, status):
+        todos = Todo.objects.filter(user=request.user, status=status)
+        serializer = TodoSerializer(todos, many=True)
+        return Response(serializer.data)
     
 # celery -A todo_project worker --pool=solo --loglevel=info
+
+# celery -A todo_project beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
