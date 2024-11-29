@@ -21,4 +21,16 @@ This project is a simple To-Do application built with Django. It includes user r
 
 - ```pip install -r requirements.txt```
 
+## API Endpoints
+- Authentication Endpoints
+1. **POST /users/register/** - User Registration
+2. **POST /users/login/** - User Login
+3. **POST /auth/refresh/** - Refresh Access Token
+- To-Do Endpoints
+1. **GET /users/todos/** - List To-Dos
+2. **POST /users/todos/create/** - Create a To-Do
+3. **PUT /users/todos/<id>/update/** - Update a To-Do
+4. **DELETE /users/todos/<id>/delete/** - Delete a To-Do
+
+
 
